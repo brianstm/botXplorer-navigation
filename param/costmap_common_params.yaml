@@ -1,0 +1,30 @@
+# Common parameters for the costmap
+obstacle_range: 4.0                                    # Range for obstacles
+raytrace_range: 5.0                                    # Range for raytracing
+footprint:                                             # Footprint for the robot with case
+  [[0.334, 0.228], [0.334, -0.228], [-0.334, -0.228], [-0.334, 0.228]] 
+# footprint:                                           # Footprint for the robot without case
+  [[0.4174, 0.43909], [0.4174, -0.43909], [-0.4174, -0.43909], [-0.4174, 0.43909]]
+inflation_radius: 0.2                                  # Radius for inflation
+robot_radius: 0.6                                      # Radius of the robot
+
+observation_sources:                                   # Sources for observation
+  laser_scan_sensor point_cloud_sensor
+
+laser_scan_sensor:                                     # Parameters for the laser scan sensor
+  {
+    sensor_frame: laser,
+    data_type: LaserScan,
+    topic: scan,
+    marking: true,
+    clearing: true,
+  }
+
+point_cloud_sensor:                                    # Parameters for the point cloud sensor
+  {
+    sensor_frame: cloud,
+    data_type: PointCloud2,
+    topic: cloud,
+    marking: true,
+    clearing: true,
+  }

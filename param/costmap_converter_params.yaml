@@ -1,0 +1,16 @@
+# Parameters for the costmap converter
+TebLocalPlannerROS:                                                        # CostmapToPolygonsDBSConcaveHull / CostmapToLinesDBSRANSAC / CostmapToLinesDBSMCCH
+  costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"  # Plugin for costmap converter
+  costmap_converter_spin_thread: True                                      # Whether to spin thread for costmap converter
+  costmap_converter_rate: 5                                                # Rate for costmap converter
+
+  costmap_converter/CostmapToLinesDBSRANSAC:                               # Parameters for the CostmapToLinesDBSRANSAC converter
+    cluster_max_distance: 0.4                                              # Maximum distance for clusters
+    cluster_min_pts: 2                                                     # Minimum points for clusters
+    ransac_inlier_distance: 0.15                                           # Inlier distance for RANSAC
+    ransac_min_inliers: 10                                                 # Minimum inliers for RANSAC
+    ransac_no_iterations: 2000                                             # Number of iterations for RANSAC
+    ransac_remainig_outliers: 3                                            # Remaining outliers for RANSAC
+    ransac_convert_outlier_pts: True                                       # Whether to convert outlier points for RANSAC
+    ransac_filter_remaining_outlier_pts: False                             # Whether to filter remaining outlier points for RANSAC
+    convex_hull_min_pt_separation: 0.1                                     # Minimum point separation for convex hull

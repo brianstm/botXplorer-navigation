@@ -1,0 +1,7 @@
+# Parameters for the global costmap
+global_costmap:
+  global_frame: map                             # Global frame
+  robot_base_frame: base_link                   # Base frame for the robot
+  update_frequency: 1.0                         # Update frequency
+  publish_frequency: 1.0                        # Publish frequency
+  static_map: true                              # Whether the map is static

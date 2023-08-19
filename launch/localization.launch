@@ -1,0 +1,14 @@
+<launch>
+
+  <!-- Run the AMCL node -->
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    
+    <!-- Remap the initialpose topic to the result_telegrams topic from the sick_lidar_localization
+    driver -->
+    <remap from="initialpose" to="/sick_lidar_localization/driver/result_telegrams" />
+
+    <!-- Load the AMCL parameters from the amcl_params.yaml file -->
+    <rosparam file="$(find navigation)/param/amcl_params.yaml" command="load" />
+  </node>
+
+</launch>

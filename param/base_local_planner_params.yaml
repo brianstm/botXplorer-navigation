@@ -1,0 +1,72 @@
+# Parameters for the Timed Elastic Band (TEB) Local Planner
+TebLocalPlannerROS:
+  odom_topic: odom                                      # Topic for odometry
+  map_frame: map                                        # Frame for the map
+
+  teb_autosize: True                                    # Whether to auto size the TEB
+  dt_ref: 0.3                                           # Reference delta time
+  dt_hysteresis: 0.1                                    # Hysteresis for delta time
+  global_plan_overwrite_orientation: True               # Whether to overwrite orientation in the global plan
+  max_global_plan_lookahead_dist: 3.0                   # Maximum lookahead distance in the global plan
+  feasibility_check_no_poses: 5                         # Number of poses for feasibility check
+
+  max_vel_x: 0.4                                        # Maximum x velocity
+  max_vel_x_backwards: 0.2                              # Maximum backwards x velocity
+  max_vel_theta: 0.3                                    # Maximum theta velocity
+  acc_lim_x: 0.5                                        # X acceleration limit
+  acc_lim_theta: 0.5                                    # Theta acceleration limit
+  min_turning_radius: 0.0                               # Minimum turning radius
+  footprint_model:                                      # Model for the robot's footprint
+    type: "polygon"                                     # Type of footprint model
+    radius: 0.2                                         # Radius of the footprint model
+    line_start: [-0.3, 0.0]                             # Start of the line for the footprint model
+    line_end: [0.3, 0.0]                                # End of the line for the footprint model
+    front_offset: 0.2                                   # Front offset for the footprint model
+    front_radius: 0.2                                   # Front radius for the footprint model
+    rear_offset: 0.2                                    # Rear offset for the footprint model
+    rear_radius: 0.2                                    # Rear radius for the footprint model
+    vertices:                                           # Vertices for the footprint model with case
+      [[0.167, 0.228], [0.167, -0.228], [-0.167, -0.228], [-0.167, 0.228]]
+    # vertices:                                         # Vertices for the footprint model without case
+    #   [[0.2087, 0.21955], [0.2087, -0.21955], [-0.2087, -0.21955], [-0.2087, 0.21955]]
+
+  xy_goal_tolerance: 0.3                                # Tolerance for goal in x and y
+  yaw_goal_tolerance: 0.2                               # Tolerance for goal in yaw
+  free_goal_vel: False                                  # Whether to have free goal velocity
+
+  min_obstacle_dist: 0.4                                # Minimum distance to obstacles
+  include_costmap_obstacles: True                       # Whether to include costmap obstacles
+  costmap_obstacles_behind_robot_dist: 1.0              # Distance for costmap obstacles behind the robot
+  obstacle_poses_affected: 40                           # Number of obstacle poses affected
+  costmap_converter_plugin: ""                          # Plugin for costmap converter
+  costmap_converter_spin_thread: True                   # Whether to spin thread for costmap converter
+  costmap_converter_rate: 5                             # Rate for costmap converter
+
+  no_inner_iterations: 5                                # Number of inner iterations
+  no_outer_iterations: 4                                # Number of outer iterations
+  optimization_activate: True                           # Whether to activate optimization
+  optimization_verbose: False                           # Whether to make optimization verbose
+  penalty_epsilon: 0.1                                  # Penalty epsilon
+  weight_max_vel_x: 2                                   # Weight for maximum x velocity
+  weight_max_vel_theta: 1                               # Weight for maximum theta velocity
+  weight_acc_lim_x: 1                                   # Weight for x acceleration limit
+  weight_acc_lim_theta: 1                               # Weight for theta acceleration limit
+  weight_kinematics_nh: 1000                            # Weight for non-holonomic kinematics
+  weight_kinematics_forward_drive: 1                    # Weight for forward drive kinematics
+  weight_kinematics_turning_radius: 1                   # Weight for turning radius kinematics
+  weight_optimaltime: 1                                 # Weight for optimal time
+  weight_obstacle: 50                                   # Weight for obstacles
+  weight_dynamic_obstacle: 10                           # Weight for dynamic obstacles
+  selection_alternative_time_cost: False                # Whether to select alternative time cost
+
+  enable_homotopy_class_planning: True                  # Whether to enable homotopy class planning
+  enable_multithreading: True                           # Whether to enable multithreading
+  simple_exploration: False                             # Whether to enable simple exploration
+  max_number_classes: 4                                 # Maximum number of classes
+  roadmap_graph_no_samples: 15                          # Number of samples for roadmap graph
+  roadmap_graph_area_width: 5                           # Area width for roadmap graph
+  h_signature_prescaler: 0.5                            # Prescaler for h signature
+  h_signature_threshold: 0.1                            # Threshold for h signature
+  obstacle_keypoint_offset: 0.1                         # Offset for obstacle keypoint
+  obstacle_heading_threshold: 0.45                      # Threshold for obstacle heading
+  visualize_hc_graph: False                             # Whether to visualize hc graph

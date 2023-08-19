@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>navigation</name>
+  <version>0.1.0</version>
+  <description>The navigation package</description>
+
+  <maintainer email="brianstjipto@gmail.com">Brians Tjipto</maintainer>
+
+  <license>Apache</license>
+
+  <url type="website">https://github.com/brianstm/amr-navigation.git</url>
+
+  <author email="brianstjipto@gmail.com">Brians Tjipto</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>move_base</build_depend>
+  <build_depend>amcl</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_export_depend>move_base</build_export_depend>
+  <build_export_depend>amcl</build_export_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>move_base</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <export>
+  </export>
+</package>

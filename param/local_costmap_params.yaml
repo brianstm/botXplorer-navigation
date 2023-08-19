@@ -1,0 +1,11 @@
+# Parameters for the local costmap
+local_costmap:
+  global_frame: odom                            # Global frame
+  robot_base_frame: base_link                   # Base frame for the robot
+  update_frequency: 2.0                         # Update frequency
+  publish_frequency: 1.0                        # Publish frequency
+  static_map: false                             # Whether the map is static
+  rolling_window: true                          # Whether to use a rolling window
+  width: 4.0                                    # Width of the costmap
+  height: 4.0                                   # Height of the costmap
+  resolution: 0.2                               # Resolution of the costmap

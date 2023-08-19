@@ -1,0 +1,42 @@
+<launch>
+
+  <!-- Run the map server -->
+  <arg name="map_file" default="$(find maps)/mapname-ils.yaml" />
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!-- Run AMCL Localization -->
+  <include file="$(find navigation)/launch/localization.launch" />
+
+  <!-- Publish static transforms -->
+  <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link"
+    args="0 0 0 0 0 0 base_footprint base_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_cloud"
+    args="0 0 0 0 0 0 base_link cloud 20" />
+
+  <!-- Run the move_base node -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    
+    <!-- Load the common costmap parameters for the global and local costmaps -->
+    <rosparam file="$(find navigation)/param/costmap_common_params.yaml" command="load"
+      ns="global_costmap" />
+    <rosparam file="$(find navigation)/param/costmap_common_params.yaml" command="load"
+      ns="local_costmap" />
+
+    <!-- Load the specific parameters for the local and global costmaps -->
+    <rosparam file="$(find navigation)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find navigation)/param/global_costmap_params.yaml" command="load" />
+
+    <!-- Load the parameters for the base local planner -->
+    <rosparam file="$(find navigation)/param/base_local_planner_params.yaml" command="load" />
+
+    <!-- Set the base local planner to use the TebLocalPlannerROS -->
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+
+    <!-- Set the controller frequency -->
+    <param name="controller_frequency" value="5.0" />
+
+    <!-- Load the parameters for the costmap converter -->
+    <rosparam file="$(find navigation)/param/costmap_converter_params.yaml" command="load" />
+  </node>
+
+</launch>

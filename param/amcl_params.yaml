@@ -1,0 +1,31 @@
+# Parameters for the Adaptive Monte Carlo Localization (AMCL)
+odom_model_type: diff                   # Type of odometry model
+transform_tolerance: 1.0                # Tolerance for transform
+gui_publish_rate: 5.0                   # GUI publish rate
+laser_max_beams: 1000                   # Maximum number of laser beams
+min_particles: 500                      # Minimum number of particles
+max_particles: 1500                     # Maximum number of particles
+kld_err: 0.005                          # Kullback-Leibler divergence error
+kld_z: 0.9                              # Kullback-Leibler divergence z value
+odom_alpha1: 1.6                        # Odometry noise parameter
+odom_alpha2: 1.6                        # Odometry noise parameter
+odom_alpha3: 0.25                       # Odometry noise parameter
+odom_alpha4: 0.25                       # Odometry noise parameter
+laser_z_hit: 0.95                       # Laser hit z value
+laser_z_short: 0.05                     # Laser short z value
+laser_z_max: 0.05                       # Laser max z value
+laser_z_rand: 0.05                      # Laser random z value
+laser_sigma_hit: 0.2                    # Laser hit sigma value
+laser_lambda_short: 0.1                 # Laser short lambda value
+laser_min_range: 0.08                   # Minimum range of the laser
+laser_max_range: 5.0                    # Maximum range of the laser
+laser_model_type: likelihood_field      # Type of laser model
+laser_likelihood_max_dist: 5.0          # Maximum distance for likelihood
+update_min_d: 0.1                       # Minimum update distance
+update_min_a: 0.1                       # Minimum update angle
+odom_frame_id: odom                     # Frame ID for odometry
+base_frame_id: base_footprint           # Base frame ID
+global_frame_id: map                    # Global frame ID
+resample_interval: 1                    # Resampling interval
+recovery_alpha_slow: 0.2                # Slow recovery alpha value
+recovery_alpha_fast: 0.4                # Fast recovery alpha value
