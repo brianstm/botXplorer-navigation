@@ -18,8 +18,8 @@ For more detailed information about the botXplorer AMR and its navigation stack,
 
 This project was developed by:
 - Brians Tjipto Meidianto
-- Aziel Chen
-- Sameer Ahamed
+- Aziel Chen Qing Feng
+- Sameer Ahamed Sadiq Batcha
   
 ## License
 
